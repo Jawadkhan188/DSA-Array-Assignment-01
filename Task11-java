@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int[] a = new int[3];
+        int[] b = new int[3];
+        int[] c = new int[6];
+
+        System.out.println("Enter first sorted array:");
+
+        for (int i = 0; i < 3; i++) {
+            a[i] = sc.nextInt();
+        }
+
+        System.out.println("Enter second sorted array:");
+
+        for (int i = 0; i < 3; i++) {
+            b[i] = sc.nextInt();
+        }
+
+        int i = 0, j = 0, k = 0;
+
+        while (i < 3 && j < 3) {
+            if (a[i] < b[j]) {
+                c[k] = a[i];
+                i++;
+            } else {
+                c[k] = b[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i < 3) {
+            c[k] = a[i];
+            i++;
+            k++;
+        }
+
+        while (j < 3) {
+            c[k] = b[j];
+            j++;
+            k++;
+        }
+
+        System.out.println("Sorted merged array:");
+
+        for (int n = 0; n < 6; n++) {
+            System.out.print(c[n] + " ");
+        }
+
+        sc.close();
+    }
+}

@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int[] a = new int[5];
+
+        System.out.println("Enter 5 numbers:");
+
+        for (int i = 0; i < 5; i++) {
+            a[i] = sc.nextInt();
+        }
+
+        int max = a[0], min = a[0];
+        int maxIndex = 0, minIndex = 0;
+
+        for (int i = 1; i < 5; i++) {
+            if (a[i] > max) {
+                max = a[i];
+                maxIndex = i;
+            }
+
+            if (a[i] < min) {
+                min = a[i];
+                minIndex = i;
+            }
+        }
+
+        int second = Integer.MAX_VALUE;
+        int secondIndex = -1;
+
+        for (int i = 0; i < 5; i++) {
+            if (a[i] > min && a[i] < second) {
+                second = a[i];
+                secondIndex = i;
+            }
+        }
+
+        System.out.println("Maximum: " + max);
+        System.out.println("Maximum index: " + maxIndex);
+
+        System.out.println("Minimum: " + min);
+        System.out.println("Minimum index: " + minIndex);
+
+        if (secondIndex != -1) {
+            System.out.println("Second minimum: " + second);
+            System.out.println("Second minimum index: " + secondIndex);
+        } else {
+            System.out.println("Second minimum does not exist");
+        }
+
+        sc.close();
+    }
+}

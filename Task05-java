@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int[] a = new int[6];
+        int size = 5;
+
+        System.out.println("Enter 5 numbers:");
+
+        for (int i = 0; i < size; i++) {
+            a[i] = sc.nextInt();
+        }
+
+        System.out.println("Enter index:");
+        int index = sc.nextInt();
+
+        System.out.println("Enter number:");
+        int num = sc.nextInt();
+
+        if (index < 0 || index > size) {
+            System.out.println("Invalid index");
+        } else {
+            for (int i = size; i > index; i--) {
+                a[i] = a[i - 1];
+            }
+
+            a[index] = num;
+            size++;
+
+            System.out.println("Updated array:");
+
+            for (int i = 0; i < size; i++) {
+                System.out.print(a[i] + " ");
+            }
+        }
+
+        sc.close();
+    }
+}
